@@ -1,44 +1,31 @@
-import {View, Text, StyleSheet} from 'react-native';
 import React, {useCallback, useMemo} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 import moment from 'moment';
 
 const Message = ({message}) => {
-  const isMyMessage = useCallback(() => {
+  const isMyMessage = useMemo(() => {
     return message.user.id === 'u1';
   }, [message]);
 
+  const containerStyle = {
+    backgroundColor: isMyMessage ? '#DCF8C5' : 'white',
+    alignSelf: isMyMessage ? 'flex-end' : 'flex-start',
+  };
+
   return (
-    <View
-      style={[
-        styles.shadows,
-        styles.container,
-        {
-          backgroundColor: isMyMessage() ? '#DCF8C5' : 'white',
-          alignSelf: isMyMessage() ? 'flex-end' : 'flex-start',
-        },
-      ]}>
+    <View style={[styles.container, containerStyle]}>
       <Text>{message.text}</Text>
       <Text style={styles.time}>{moment(message.createdAt).fromNow()}</Text>
     </View>
   );
 };
 
-export default Message;
-
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
-    alignSelf: 'flex-start',
     margin: 5,
     padding: 10,
     borderRadius: 10,
     maxWidth: '80%',
-  },
-  time: {
-    color: 'grey',
-    alignSelf: 'flex-end',
-  },
-  shadows: {
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -48,4 +35,10 @@ styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
+  time: {
+    color: 'grey',
+    alignSelf: 'flex-end',
+  },
 });
+
+export default Message;

@@ -1,8 +1,13 @@
-import {View, Text, StyleSheet, TextInput, Button} from 'react-native';
 import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 
 const InputBox = () => {
-
   const [newMessage, setNewMessage] = useState('');
 
   const onSend = () => {
@@ -12,7 +17,9 @@ const InputBox = () => {
 
   return (
     <View style={styles.container}>
-      <Button title="+" />
+      <TouchableOpacity style={styles.addButton}>
+        <Text style={styles.addButtonText}>+</Text>
+      </TouchableOpacity>
 
       <TextInput
         value={newMessage}
@@ -21,13 +28,14 @@ const InputBox = () => {
         onChangeText={text => setNewMessage(text)}
       />
 
-      <Button title="SEND" onPress={onSend} style={styles.send} />
+      <TouchableOpacity style={styles.sendButton} onPress={onSend}>
+        <Text style={styles.sendButtonText}>SEND</Text>
+      </TouchableOpacity>
     </View>
   );
 };
-export default InputBox;
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     backgroundColor: 'whitesmoke',
@@ -35,24 +43,41 @@ styles = StyleSheet.create({
     paddingHorizontal: 10,
     alignItems: 'center',
   },
-
+  addButton: {
+    backgroundColor: 'lightgrey',
+    borderRadius: 50,
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  addButtonText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
   inputText: {
     flex: 1,
     backgroundColor: 'white',
     marginHorizontal: 10,
-
     padding: 5,
     paddingHorizontal: 10,
     borderRadius: 50,
     borderColor: 'gray',
     borderWidth: StyleSheet.hairlineWidth,
-
     fontSize: 16,
   },
-  send: {
+  sendButton: {
     backgroundColor: 'royalblue',
     borderRadius: 15,
-    padding: 7,
-    overflow: 'hidden',
+    paddingVertical: 7,
+    paddingHorizontal: 15,
+    marginLeft: 10,
+  },
+  sendButtonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
+
+export default InputBox;

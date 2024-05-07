@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Icono from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 const Tab = createBottomTabNavigator();
 
@@ -71,7 +72,7 @@ const MainTabNavigator = () => {
       <Tab.Screen
         options={{
           tabBarIcon: ({color, size}) => (
-            <Entypo name="new-message" color={color} size={size} />
+            <SimpleLineIcons name="settings" color={color} size={size} />
           ),
         }}
         name="Settings"

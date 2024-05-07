@@ -4,11 +4,11 @@ import React from 'react';
 import chats from '../assets/data/chats.json';
 import ChatListItem from '../components/ChatListItem/ChatListItem';
 
-export default function ChatScreens() {
+export default function ChatsScreen(props) {
   return (
     <FlatList
       data={chats}
-      renderItem={({item}) => ChatListItem({chat: item})}
+      renderItem={({item}) => ChatListItem({chat: item, props})}
     />
   );
 }

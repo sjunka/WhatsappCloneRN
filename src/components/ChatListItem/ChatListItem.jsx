@@ -1,10 +1,15 @@
-import {View, Text, Image, StyleSheet} from 'react-native';
-import React from 'react';
+// import React from 'react';
+
+import {View, Text, Image, StyleSheet, Pressable} from 'react-native';
 import moment from 'moment';
 
-export default function ChatListItem({chat}) {
+const ChatListItem = ({chat, props: {navigation}}) => {
   return (
-    <View style={styles.container}>
+    <Pressable
+      onPress={() => {
+        navigation.navigate('Chat', {id: chat.id});
+      }}
+      style={styles.container}>
       <Image source={{uri: chat.user.image}} style={styles.image} />
 
       <View style={styles.content}>
@@ -21,9 +26,10 @@ export default function ChatListItem({chat}) {
           {chat.lastMessage.text}
         </Text>
       </View>
-    </View>
+    </Pressable>
   );
-}
+};
+export default ChatListItem;
 
 const styles = StyleSheet.create({
   container: {

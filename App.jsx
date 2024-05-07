@@ -1,17 +1,17 @@
 import React from 'react';
 import {StyleSheet, Text, View, StatusBar} from 'react-native';
 
-import ChatScreens from './src/screens/ChatScreens';
-import ChatScreen from './src/screens/ChatScreen';
+import Navigator from './src/navigation/Navigator';
 
-export default function App() {
+const App = () => {
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
-      <ChatScreen />
+      <Navigator />
     </View>
   );
-}
+};
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {

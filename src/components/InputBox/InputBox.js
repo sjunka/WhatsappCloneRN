@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {
   View,
   Text,
@@ -6,6 +8,9 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const InputBox = () => {
   const [newMessage, setNewMessage] = useState('');
@@ -16,9 +21,9 @@ const InputBox = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.addButton}>
-        <Text style={styles.addButtonText}>+</Text>
+    <SafeAreaView style={styles.container}>
+      <TouchableOpacity>
+        <AntDesign name="plus" size={24} color="royalblue" />
       </TouchableOpacity>
 
       <TextInput
@@ -28,10 +33,14 @@ const InputBox = () => {
         onChangeText={text => setNewMessage(text)}
       />
 
-      <TouchableOpacity style={styles.sendButton} onPress={onSend}>
-        <Text style={styles.sendButtonText}>SEND</Text>
+      <TouchableOpacity onPress={onSend}>
+        <MaterialCommunityIcons
+          name="send-circle"
+          size={28}
+          color="royalblue"
+        />
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -43,18 +52,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     alignItems: 'center',
   },
-  addButton: {
-    backgroundColor: 'lightgrey',
-    borderRadius: 50,
-    width: 30,
-    height: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  addButtonText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
+
   inputText: {
     flex: 1,
     backgroundColor: 'white',
@@ -65,18 +63,6 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderWidth: StyleSheet.hairlineWidth,
     fontSize: 16,
-  },
-  sendButton: {
-    backgroundColor: 'royalblue',
-    borderRadius: 15,
-    paddingVertical: 7,
-    paddingHorizontal: 15,
-    marginLeft: 10,
-  },
-  sendButtonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
   },
 });
 

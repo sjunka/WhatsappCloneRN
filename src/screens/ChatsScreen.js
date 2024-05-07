@@ -8,6 +8,7 @@ const ChatsScreen = () => {
   return (
     <FlatList
       data={chats}
+      style={{backgroundColor: 'white'}}
       renderItem={({item}) => <ChatListItem chat={item} />}
     />
   );

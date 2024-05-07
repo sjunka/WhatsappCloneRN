@@ -7,6 +7,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Navigator></Navigator>
+      <StatusBar></StatusBar>
     </View>
   );
 };
@@ -16,8 +17,7 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'whitesmoke',
     justifyContent: 'center',
-    paddingVertical: 10,
   },
 });

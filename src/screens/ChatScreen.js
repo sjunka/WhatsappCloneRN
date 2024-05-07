@@ -20,8 +20,8 @@ const ChatScreen = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    navigation.setOptions({title: route.params.name});
-  }, [route.params.name]);
+    navigation.setOptions({title: route?.params?.name});
+  }, []);
 
   return (
     <KeyboardAvoidingView

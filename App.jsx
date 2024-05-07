@@ -6,7 +6,7 @@ import Navigator from './src/navigation/Navigator';
 const App = () => {
   return (
     <View style={styles.container}>
-      <Navigator />
+      <Navigator></Navigator>
     </View>
   );
 };
@@ -18,6 +18,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
-    paddingVertical: 50,
+    paddingVertical: 10,
   },
 });

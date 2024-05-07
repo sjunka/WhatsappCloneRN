@@ -11,12 +11,11 @@ const Stack = createNativeStackNavigator();
 const Navigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Chats">
+        <Stack.Screen name="Chat" component={ChatScreen} />
         <Stack.Screen name="Chats">
           {props => <ChatsScreen {...props} />}
         </Stack.Screen>
-
-        <Stack.Screen name="Chat" component={ChatScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

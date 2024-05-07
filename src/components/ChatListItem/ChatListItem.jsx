@@ -2,12 +2,14 @@
 
 import {View, Text, Image, StyleSheet, Pressable} from 'react-native';
 import moment from 'moment';
+import {useNavigation} from '@react-navigation/native';
 
-const ChatListItem = ({chat, props: {navigation}}) => {
+const ChatListItem = ({chat}) => {
+  const navigation = useNavigation();
   return (
     <Pressable
       onPress={() => {
-        navigation.navigate('Chat', {id: chat.id});
+        navigation.navigate('Chat', {id: chat.id, name: chat.user.name});
       }}
       style={styles.container}>
       <Image source={{uri: chat.user.image}} style={styles.image} />

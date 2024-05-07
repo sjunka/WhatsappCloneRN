@@ -6,8 +6,8 @@ import Navigator from './src/navigation/Navigator';
 const App = () => {
   return (
     <View style={styles.container}>
-      <Navigator></Navigator>
-      <StatusBar></StatusBar>
+      <StatusBar />
+      <Navigator />
     </View>
   );
 };

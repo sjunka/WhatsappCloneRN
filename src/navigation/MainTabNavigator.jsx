@@ -51,7 +51,7 @@ const MainTabNavigator = () => {
         component={NotImplementedScreen}
       />
       <Tab.Screen
-        options={{
+        options={({navigation}) => ({
           headerTitleAlign: 'center',
           tabBarIcon: ({color, size}) => (
             <Icono name="chatbubbles-outline" color={color} size={size} />
@@ -65,7 +65,7 @@ const MainTabNavigator = () => {
               style={{marginRight: 15}}
             />
           ),
-        }}
+        })}
         name="Chats"
         component={ChatsScreen}
       />

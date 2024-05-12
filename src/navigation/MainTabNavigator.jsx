@@ -2,6 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import NotImplementedScreen from '../screens/NotImplementedScreen';
 import ChatsScreen from '../screens/ChatsScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icono from 'react-native-vector-icons/Ionicons';
@@ -76,7 +77,7 @@ const MainTabNavigator = () => {
           ),
         }}
         name="Settings"
-        component={NotImplementedScreen}
+        component={SettingsScreen}
       />
     </Tab.Navigator>
   );
